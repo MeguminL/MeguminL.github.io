@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post.If you get any problems when using Hexo, you can ask me on GitHub. 基于拉格朗日插值的bmp图片缩放算法项目要求题目分析代码实现代码链接.">
+<meta name="description" content="Welcome to Hexo! This is your very first post.If you get any problems when using Hexo, you can ask me on GitHub. 基于拉格朗日插值的bmp图片缩放算法题目要求 本题考查Lagrange插值的应用 采用Lagrange插值对BMP图像进行缩放处理 要求 C语言等高级语言编程 能够指定待缩放">
 <meta name="keywords" content="c++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于拉格朗日插值的图片缩放算法.hexo">
 <meta property="og:url" content="http://Meguminl.github.io/2019/06/16/基于拉格朗日插值的图片缩放算法/index.html">
 <meta property="og:site_name" content="megumin">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post.If you get any problems when using Hexo, you can ask me on GitHub. 基于拉格朗日插值的bmp图片缩放算法项目要求题目分析代码实现代码链接.">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post.If you get any problems when using Hexo, you can ask me on GitHub. 基于拉格朗日插值的bmp图片缩放算法题目要求 本题考查Lagrange插值的应用 采用Lagrange插值对BMP图像进行缩放处理 要求 C语言等高级语言编程 能够指定待缩放">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-16T02:40:23.902Z">
+<meta property="og:image" content="http://meguminl.github.io/image/BMP%E6%96%87%E4%BB%B6.png">
+<meta property="og:updated_time" content="2019-07-02T16:44:54.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于拉格朗日插值的图片缩放算法.hexo">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post.If you get any problems when using Hexo, you can ask me on GitHub. 基于拉格朗日插值的bmp图片缩放算法项目要求题目分析代码实现代码链接.">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post.If you get any problems when using Hexo, you can ask me on GitHub. 基于拉格朗日插值的bmp图片缩放算法题目要求 本题考查Lagrange插值的应用 采用Lagrange插值对BMP图像进行缩放处理 要求 C语言等高级语言编程 能够指定待缩放">
+<meta name="twitter:image" content="http://meguminl.github.io/image/BMP%E6%96%87%E4%BB%B6.png">
 
 
 
@@ -366,7 +368,34 @@
 
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post.If you get any problems when using Hexo, you can ask me on <a href="https://github.com/MeguminL/C-" target="_blank" rel="noopener">GitHub</a>.</p>
-<h1 id="基于拉格朗日插值的bmp图片缩放算法"><a href="#基于拉格朗日插值的bmp图片缩放算法" class="headerlink" title="基于拉格朗日插值的bmp图片缩放算法"></a>基于拉格朗日插值的bmp图片缩放算法</h1><h2 id="项目要求"><a href="#项目要求" class="headerlink" title="项目要求"></a>项目要求</h2><h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><a href="https://paste.ubuntu.com/p/CnHRJTD9Mp/" target="_blank" rel="noopener">代码链接</a>.</p>
+<h1 id="基于拉格朗日插值的bmp图片缩放算法"><a href="#基于拉格朗日插值的bmp图片缩放算法" class="headerlink" title="基于拉格朗日插值的bmp图片缩放算法"></a>基于拉格朗日插值的bmp图片缩放算法</h1><h2 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h2><ul>
+<li>本题考查<strong>Lagrange插值</strong>的应用</li>
+<li>采用<strong>Lagrange插值</strong>对<strong>BMP图像</strong>进行缩放处理</li>
+<li>要求<ul>
+<li>C语言等高级语言编程</li>
+<li>能够指定待缩放图像</li>
+<li>能够指定目标图像尺寸</li>
+<li>能够指定插值所需样本点数</li>
+<li>能够保存缩放图像</li>
+</ul>
+</li>
+<li>功能<ul>
+<li>选做功能1: 灰度图像的缩放</li>
+<li>选做功能2: 彩色图像的缩放<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>BMP文件的表示<ul>
+<li>BMP文件包括文件头、信息头、调色板、图像数据</li>
+<li>文件头一般14个字节(详见后文)</li>
+<li>信息头一般40个字节(详见后文)</li>
+<li>彩色图像一般无调色板，灰度图像调色板一般为 unsigned char clrPal[1024] = {0,0,0,0,   1,1,1,0,   …,   255,255,255,0}<br>图像数据(见后文)</li>
+</ul>
+</li>
+<li><img src="/image/BMP%E6%96%87%E4%BB%B6.png" alt="BMP文件"></li>
+</ol>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><a href="https://paste.ubuntu.com/p/CnHRJTD9Mp/" target="_blank" rel="noopener">代码连接</a>.</p>
 
       
     </div>
@@ -534,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于拉格朗日插值的bmp图片缩放算法"><span class="nav-number">1.</span> <span class="nav-text">基于拉格朗日插值的bmp图片缩放算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目要求"><span class="nav-number">1.1.</span> <span class="nav-text">项目要求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目分析"><span class="nav-number">1.1.1.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于拉格朗日插值的bmp图片缩放算法"><span class="nav-number">1.</span> <span class="nav-text">基于拉格朗日插值的bmp图片缩放算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目要求"><span class="nav-number">1.1.</span> <span class="nav-text">题目要求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目分析"><span class="nav-number">1.1.1.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
