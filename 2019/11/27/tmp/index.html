@@ -55,17 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="个人站">
-<meta property="og:type" content="website">
+  <meta name="description" content="播放本地媒体流       var promise = null;    function canGetUserMediaUse() {         return !!(navigator.mediaDevices.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.">
+<meta property="og:type" content="article">
 <meta property="og:title" content="megumin">
-<meta property="og:url" content="http://Meguminl.github.io/tags/c/index.html">
+<meta property="og:url" content="http://Meguminl.github.io/2019/11/27/tmp/index.html">
 <meta property="og:site_name" content="megumin">
-<meta property="og:description" content="个人站">
+<meta property="og:description" content="播放本地媒体流       var promise = null;    function canGetUserMediaUse() {         return !!(navigator.mediaDevices.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-27T02:26:47.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="megumin">
-<meta name="twitter:description" content="个人站">
-  <link rel="canonical" href="http://Meguminl.github.io/tags/c/">
+<meta name="twitter:description" content="播放本地媒体流       var promise = null;    function canGetUserMediaUse() {         return !!(navigator.mediaDevices.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.">
+  <link rel="canonical" href="http://Meguminl.github.io/2019/11/27/tmp/">
 
 
 <script id="page-configurations">
@@ -73,13 +74,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签: c++ | megumin</title>
+  <title> | megumin</title>
   
 
 
@@ -185,75 +186,164 @@
         <div class="content-wrap">
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block tag">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">c++<small>标签</small>
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://Meguminl.github.io/2019/11/27/tmp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lwl">
+      <meta itemprop="description" content="个人站">
+      <meta itemprop="image" content="/images/xi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="megumin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+
+          
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-27 10:26:32 / 修改时间：10:26:47" itemprop="dateCreated datePublished" datetime="2019-11-27T10:26:32+08:00">2019-11-27</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <!DOCTYPE html>
+<head><meta name="generator" content="Hexo 3.8.0">
+<meta charset="utf-8">
+<title>播放本地媒体流</title>
+</head>
+<body>
+ <script type="text/javascript">
+  var promise = null;
+   function canGetUserMediaUse() {
+        return !!(navigator.mediaDevices.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+    }
+  function getUserMedia(constrains,success,error){
+    if(navigator.mediaDevices.getUserMedia){
+      promise = navigator.mediaDevices.getUserMedia(constrains).then(success).catch(error);
+    }else if(navigator.webkitGetUserMedia){
+      promise = navigator.webkitGetUserMedia(constrains).then(success).catch(error);
+    }else if(navagator.mozGetUserMedia){
+      promise = navagator.mozGetUserMedia(constrains).then(success).catch(error);
+    }else if(navagator.getUserMedia){
+      promise = navagator.getUserMedia(constrains).then(success).catch(error);
+    }
+  }
+function showVideo() {
+        if (canGetUserMediaUse()) {
+            getUserMedia({
+                //audio:true,
+                video:true
+            },function (stream) {
+                console.log(stream);
+                document.getElementById('localVideo').srcObject = stream;
+            },function (error) {         })
+        }else  { alert('您的浏览器不兼容');  }
+    }
+
+ </script>
+  <video autoplay="true" id="localVideo"></video>
+  <button onclick="showVideo()">
+    打开
+  </button>
+</body>
+ 
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>lwl</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://Meguminl.github.io/2019/11/27/tmp/">http://Meguminl.github.io/2019/11/27/tmp/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
 
       
 
-  
-  
+      <footer class="post-footer">
 
-  
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/27/test/" rel="next" title="test">
+                  <i class="fa fa-chevron-left"></i> test
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/16/基于拉格朗日插值的图片缩放算法/" itemprop="url">
-            <span itemprop="name">基于拉格朗日插值的图片缩放算法</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-06-16T02:10:29+08:00"
-              content="2019-06-16">
-          06-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    </div>
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
@@ -272,6 +362,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
