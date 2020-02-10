@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="H.叁佰爱抠的序列叁佰爱抠的智商有三百，他特别喜欢构造各种各样的序列。 这天他突然想出了这样一个序列： 一个长度为n的序列A，元素的值域是[1,m]。 对于任意x,y∈[1,m],x≠y，序列中存在一个位置p(1≤p&amp;lt;n)，满足A[p]=x,A[p+1]=y或者A[p+1]=x,A[p]=y。 叁佰爱抠很开心地走了。作为他忠实粉丝的你只听清楚了n的大小，那么你好奇了起来，m最大值可以取到">
+<meta name="keywords" content="ACM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Camp Day2">
+<meta property="og:url" content="http://Meguminl.github.io/2020/02/10/Camp-Day2/index.html">
+<meta property="og:site_name" content="megumin">
+<meta property="og:description" content="H.叁佰爱抠的序列叁佰爱抠的智商有三百，他特别喜欢构造各种各样的序列。 这天他突然想出了这样一个序列： 一个长度为n的序列A，元素的值域是[1,m]。 对于任意x,y∈[1,m],x≠y，序列中存在一个位置p(1≤p&amp;lt;n)，满足A[p]=x,A[p+1]=y或者A[p+1]=x,A[p]=y。 叁佰爱抠很开心地走了。作为他忠实粉丝的你只听清楚了n的大小，那么你好奇了起来，m最大值可以取到">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-10T14:20:25.684Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Camp Day2">
+<meta name="twitter:description" content="H.叁佰爱抠的序列叁佰爱抠的智商有三百，他特别喜欢构造各种各样的序列。 这天他突然想出了这样一个序列： 一个长度为n的序列A，元素的值域是[1,m]。 对于任意x,y∈[1,m],x≠y，序列中存在一个位置p(1≤p&amp;lt;n)，满足A[p]=x,A[p+1]=y或者A[p+1]=x,A[p]=y。 叁佰爱抠很开心地走了。作为他忠实粉丝的你只听清楚了n的大小，那么你好奇了起来，m最大值可以取到">
+  <link rel="canonical" href="http://Meguminl.github.io/2020/02/10/Camp-Day2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Camp Day2 | megumin</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">megumin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://Meguminl.github.io/2020/02/10/Camp-Day2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lwl">
+      <meta itemprop="description" content="个人站">
+      <meta itemprop="image" content="/images/xi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="megumin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Camp Day2
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-10 21:13:17 / 修改时间：22:20:25" itemprop="dateCreated datePublished" datetime="2020-02-10T21:13:17+08:00">2020-02-10</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+
+<h1 id="H-叁佰爱抠的序列"><a href="#H-叁佰爱抠的序列" class="headerlink" title="H.叁佰爱抠的序列"></a><a href="https://pintia.cn/problem-sets/1216577066538311680/problems/1216577133471023111" target="_blank" rel="noopener">H.<strong>叁佰爱抠的序列</strong></a></h1><p>叁佰爱抠的智商有三百，他特别喜欢构造各种各样的序列。</p>
+<p>这天他突然想出了这样一个序列：</p>
+<p>一个长度为<em>n</em>的序列A，元素的值域是[1,<em>m</em>]。</p>
+<p>对于任意<em>x</em>,<em>y</em>∈[1,<em>m</em>],<em>x</em>≠<em>y</em>，序列中存在一个位置<em>p</em>(1≤<em>p</em>&lt;<em>n</em>)，满足<em>A</em>[<em>p</em>]=<em>x</em>,<em>A</em>[<em>p</em>+1]=<em>y</em>或者<em>A</em>[<em>p</em>+1]=<em>x</em>,<em>A</em>[<em>p</em>]=<em>y</em>。</p>
+<p>叁佰爱抠很开心地走了。作为他忠实粉丝的你只听清楚了<em>n</em>的大小，那么你好奇了起来，<em>m</em>最大值可以取到多少，并且打算自己动手构造一个这样的序列。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>读入一个整数<em>n</em>(1≤<em>n</em>≤1e18)，代表序列的长度。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>若<em>n</em>&gt;2∗106，请直接输出一个整数<em>m</em>代表最大取值。</p>
+<p>若<em>n</em>≤2∗106，请按以下格式输出： 第一行输出一个整数<em>m</em>，代表最大取值。 第二行输出<em>n</em>个整数，代表满足条件的序列。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1 2 3 1 4 3 4 2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 2 3 1 1 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="题解：首先观察序列的含义，每对x-y-x-lt-y-在序列中至少相邻一次，将x，y相邻看成一条边，对于n个点的完全图-存在自环-来说，该序列的含义为，图上的一条链，该链包含每条边，每条边可以重复出现。对于这样的链，其特殊情况即每条边只出现一次为欧拉通路或者欧拉回路。故对n个点建好完全图，跑出欧拉路即可构造出题目需要的序列。"><a href="#题解：首先观察序列的含义，每对x-y-x-lt-y-在序列中至少相邻一次，将x，y相邻看成一条边，对于n个点的完全图-存在自环-来说，该序列的含义为，图上的一条链，该链包含每条边，每条边可以重复出现。对于这样的链，其特殊情况即每条边只出现一次为欧拉通路或者欧拉回路。故对n个点建好完全图，跑出欧拉路即可构造出题目需要的序列。" class="headerlink" title="题解：首先观察序列的含义，每对x,y(x&lt;y) 在序列中至少相邻一次，将x，y相邻看成一条边，对于n个点的完全图(存在自环)来说，该序列的含义为，图上的一条链，该链包含每条边，每条边可以重复出现。对于这样的链，其特殊情况即每条边只出现一次为欧拉通路或者欧拉回路。故对n个点建好完全图，跑出欧拉路即可构造出题目需要的序列。"></a>题解：首先观察序列的含义，每对x,y(x&lt;y) 在序列中至少相邻一次，将x，y相邻看成一条边，对于n个点的完全图(存在自环)来说，该序列的含义为，图上的一条链，该链包含每条边，每条边可以重复出现。对于这样的链，其特殊情况即每条边只出现一次为欧拉通路或者欧拉回路。故对n个点建好完全图，跑出欧拉路即可构造出题目需要的序列。</h3><h3 id="知道序列为完全图欧拉路之后，可以推出点数n与序列长度m的关系"><a href="#知道序列为完全图欧拉路之后，可以推出点数n与序列长度m的关系" class="headerlink" title="知道序列为完全图欧拉路之后，可以推出点数n与序列长度m的关系"></a>知道序列为完全图欧拉路之后，可以推出点数n与序列长度m的关系</h3><h3 id="1-当点数n为奇数时，即每个点的度都为偶数，该图存在欧拉回路，即该图所有的边可以构成满足条件的序列，设边数为m，则n个点最少边数为n-n-1-2-序列长度至少为n-n-1-2-1"><a href="#1-当点数n为奇数时，即每个点的度都为偶数，该图存在欧拉回路，即该图所有的边可以构成满足条件的序列，设边数为m，则n个点最少边数为n-n-1-2-序列长度至少为n-n-1-2-1" class="headerlink" title="1. 当点数n为奇数时，即每个点的度都为偶数，该图存在欧拉回路，即该图所有的边可以构成满足条件的序列，设边数为m，则n个点最少边数为n(n-1)/2,序列长度至少为n****(n-1)/2+1;"></a>1. 当点数n为奇数时，即每个点的度都为偶数，该图存在欧拉回路，即该图所有的边可以构成满足条件的序列，设边数为m，则n个点最少边数为n<em>(n-1)/2,序列长度至少为n****</em>(n-1)/2+1;</h3><h3 id="2-当点数n为偶数时，每个点的度都为奇数，不存在欧拉通路，故我们要尝试提出一些边，使得存在欧拉通路，即只存在两奇点-度数为奇数的点-设1和n为奇点，剩下n-2为偶点，任取-n-2-2对点之间的边即可，跑出欧拉通路后，再把这-n-2-2条边补在最后面，就能构成满足条件的序列。此时n个点需要最少边数依然是n-n-1-2，但因为放了（n-2）-2条无公共点的边，导致序列长度增加，最后序列长度至少为n-n-2。"><a href="#2-当点数n为偶数时，每个点的度都为奇数，不存在欧拉通路，故我们要尝试提出一些边，使得存在欧拉通路，即只存在两奇点-度数为奇数的点-设1和n为奇点，剩下n-2为偶点，任取-n-2-2对点之间的边即可，跑出欧拉通路后，再把这-n-2-2条边补在最后面，就能构成满足条件的序列。此时n个点需要最少边数依然是n-n-1-2，但因为放了（n-2）-2条无公共点的边，导致序列长度增加，最后序列长度至少为n-n-2。" class="headerlink" title="2.当点数n为偶数时，每个点的度都为奇数，不存在欧拉通路，故我们要尝试提出一些边，使得存在欧拉通路，即只存在两奇点(度数为奇数的点),设1和n为奇点，剩下n-2为偶点，任取(n-2)/2对点之间的边即可，跑出欧拉通路后，再把这(n-2)/2条边补在最后面，就能构成满足条件的序列。此时n个点需要最少边数依然是n(n-1)/2，但因为放了（n-2）/2条无公共点的边，导致序列长度增加，最后序列长度至少为n****n/2。"></a>2.当点数n为偶数时，每个点的度都为奇数，不存在欧拉通路，故我们要尝试提出一些边，使得存在欧拉通路，即只存在两奇点(度数为奇数的点),设1和n为奇点，剩下n-2为偶点，任取(n-2)/2对点之间的边即可，跑出欧拉通路后，再把这(n-2)/2条边补在最后面，就能构成满足条件的序列。此时n个点需要最少边数依然是n<em>(n-1)/2，但因为放了（n-2）/2条无公共点的边，导致序列长度增加，最后序列长度至少为n****</em>n/2。</h3><h3 id="综上-知道序列长度后，可以采用二分法推出最大点数，然后建图跑欧拉路，构造序列即可。"><a href="#综上-知道序列长度后，可以采用二分法推出最大点数，然后建图跑欧拉路，构造序列即可。" class="headerlink" title="综上 知道序列长度后，可以采用二分法推出最大点数，然后建图跑欧拉路，构造序列即可。"></a>综上 知道序列长度后，可以采用二分法推出最大点数，然后建图跑欧拉路，构造序列即可。</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mk(a,b) make_pair(a, b)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> to, next, f;</span><br><span class="line">&#125;e[maxm];</span><br><span class="line"><span class="keyword">int</span> head[maxn], num;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">	e[num] = (edge)&#123;v, head[u], <span class="number">0</span>&#125;; head[u] = num++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=e[i].next)&#123;</span><br><span class="line">		<span class="keyword">if</span>(e[i].f) <span class="keyword">continue</span>;</span><br><span class="line">		e[i].f = e[i^<span class="number">1</span>].f = <span class="number">1</span>;</span><br><span class="line">		dfs(e[i].to);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>, e[i].to);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ll n;</span><br><span class="line">	<span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="keyword">sizeof</span> head);</span><br><span class="line">	num = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">if</span>(n &gt; <span class="number">2000000</span>) &#123;</span><br><span class="line">		<span class="comment">//TODO;</span></span><br><span class="line">		ll m1, m2;</span><br><span class="line">		ll l = <span class="number">1</span>, r = <span class="number">1500000000</span>;</span><br><span class="line">		<span class="keyword">while</span>(l &lt;= r) &#123;</span><br><span class="line">			ll mid = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(mid&amp;<span class="number">1</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span>(<span class="number">1</span>+(mid<span class="number">-1</span>)/<span class="number">2</span>*mid &lt;= n) l = mid + <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span>(mid/<span class="number">2</span>*mid &lt;= n) l = mid + <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, r);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">int</span> l = <span class="number">1</span>, r = <span class="number">2000</span>;</span><br><span class="line">		<span class="keyword">while</span>(l &lt;= r) &#123;</span><br><span class="line">			<span class="keyword">int</span> mid = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(mid&amp;<span class="number">1</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span>(<span class="number">1</span>+mid*(mid<span class="number">-1</span>)/<span class="number">2</span> &lt;= n) l = mid + <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span>(mid*mid/<span class="number">2</span> &lt;= n) l = mid + <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, r);</span><br><span class="line">		<span class="keyword">if</span>(r &amp; <span class="number">1</span>)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=r;i++)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>+i;j&lt;=r;j++)&#123;</span><br><span class="line">					add(i, j);</span><br><span class="line">					add(j, i);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			dfs(<span class="number">1</span>);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>, <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">int</span> tmp = n - <span class="number">1</span> - r*(r<span class="number">-1</span>)/<span class="number">2</span>; </span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;tmp;++j) <span class="built_in">printf</span>(<span class="string">" %d"</span>, <span class="number">1</span>);</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=r;i++)&#123;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=r;j++)&#123;</span><br><span class="line">					<span class="keyword">if</span>(i!=<span class="number">1</span> &amp;&amp; (i&amp;<span class="number">1</span>) &amp;&amp; i+<span class="number">1</span>==j) <span class="keyword">continue</span>;</span><br><span class="line">  					add(i, j);</span><br><span class="line">					add(j, i);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			dfs(<span class="number">1</span>);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"1"</span>);</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;r;i+=<span class="number">2</span>) <span class="built_in">printf</span>(<span class="string">" %d %d"</span>, i, i+<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">int</span> tmp = n - r*r/<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;tmp;i++) <span class="built_in">printf</span>(<span class="string">" 1"</span>);</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-邦邦的2-SAT模板"><a href="#2-邦邦的2-SAT模板" class="headerlink" title="2.邦邦的2-SAT模板"></a><a href="https://pintia.cn/problem-sets/1216577066538311680/problems/1216577133471023113" target="_blank" rel="noopener">2.<strong>邦邦的2-SAT模板</strong></a></h1><p>邦邦是图论白痴，他有一天捡到了一份模板，可以解决2-SAT问题并输出方案。</p>
+<p>所谓2-SAT问题，指：有<em>n</em>个布尔变量<em>a**、、i</em>，有<em>m</em>个形如<em>x<strong>o</strong>r**y</em>=<em>t<strong>r</strong>u**e</em>的方程，<em>x</em>和<em>y</em>为<em>a**i</em>或者!<em>a**i</em>，求是否存在一组<em>a**i</em>的取值满足所有方程。</p>
+<p>戳戳是真正的图论大师，他看了看邦邦的板子，发现这段代码会超时。邦邦不相信，戳戳要赶去约会了，于是希望你构造一个数据让邦邦这段代码超时。</p>
+<p>具体地，你需要根据给定的<em>n</em>按如下格式构造：</p>
+<p>第一行输出一个整数<em>m</em>(0≤<em>m</em>≤<em>n</em>)，代表有<em>m</em>个方程。</p>
+<p>接下来<em>m</em>行，给出两个数<em>x</em>和<em>y</em>(−<em>n</em>≤<em>x</em>,<em>y</em>≤<em>n</em>,<em>x</em>,<em>y</em>≠0)，若数字为负数，代表!<em>a**i</em>，否则代表<em>a**i</em>。</p>
+<p>要求保证代码中solve的返回值是true(存在至少一组解)，且<em>C<strong>N</strong>T</em>的值满足</p>
+<p><em>n</em>2≤2∗<em>C<strong>N</strong>T</em></p>
+<p>邦邦的2-SAT模板见附录。</p>
+<h3 id="输入格式：-1"><a href="#输入格式：-1" class="headerlink" title="输入格式："></a>输入格式：</h3><p>读入一个整数<em>n</em>(1≤<em>n</em>≤3000)。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>按规定格式输出。</p>
+<h3 id="输入样例：-1"><a href="#输入样例：-1" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出样例：-1"><a href="#输出样例：-1" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">3010</span>;</span><br><span class="line"><span class="keyword">int</span> g[N&lt;&lt;<span class="number">1</span>],nxt[N&lt;&lt;<span class="number">1</span>],v[N&lt;&lt;<span class="number">1</span>],num;</span><br><span class="line"><span class="keyword">int</span> q[N&lt;&lt;<span class="number">1</span>],t;</span><br><span class="line"><span class="keyword">bool</span> vis[N&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> CNT;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">	nxt[++num]=g[x];</span><br><span class="line">	v[num]=y;</span><br><span class="line">	g[x]=num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	CNT++;</span><br><span class="line">	<span class="keyword">if</span>(vis[x&gt;n?x-n:x+n])<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(vis[x])<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	vis[q[++t]=x]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=g[x];i;i=nxt[i])<span class="keyword">if</span>(!dfs(v[i]))<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="keyword">if</span>(!vis[i]&amp;&amp;!vis[i+n])&#123;</span><br><span class="line">		t=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span>(!dfs(i))&#123;</span><br><span class="line">			<span class="keyword">while</span>(t)vis[q[t--]]=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">if</span>(!dfs(i+n))<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> x,y;<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</span><br><span class="line">		<span class="keyword">if</span>(x&lt;<span class="number">0</span>)x=n-x;<span class="keyword">if</span>(y&lt;<span class="number">0</span>)y=n-y;</span><br><span class="line">		add(x&gt;n?x-n:x+n,y);add(y&gt;n?y-n:y+n,x);</span><br><span class="line">	&#125;</span><br><span class="line">	solve();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id><a href="#" class="headerlink" title=" "></a> </h3><h3 id="题目给了一个市面上常用的2-SAT模板，复杂度O-n-n-m-，主要用于求字典序最小的方案，当求通解或判断是否存在解时，可用tarjan缩点的方式在-m-n-的时间内求出。当明白该模板原理后，很容易发现，一条长链就可以吧该模板卡成最坏复杂度。因为只有每次dfs到最深处，才知道该次dfs为假，至于优化，不是很了解…"><a href="#题目给了一个市面上常用的2-SAT模板，复杂度O-n-n-m-，主要用于求字典序最小的方案，当求通解或判断是否存在解时，可用tarjan缩点的方式在-m-n-的时间内求出。当明白该模板原理后，很容易发现，一条长链就可以吧该模板卡成最坏复杂度。因为只有每次dfs到最深处，才知道该次dfs为假，至于优化，不是很了解…" class="headerlink" title="题目给了一个市面上常用的2-SAT模板，复杂度O(n*(n+m))，主要用于求字典序最小的方案，当求通解或判断是否存在解时，可用tarjan缩点的方式在(m+n)的时间内求出。当明白该模板原理后，很容易发现，一条长链就可以吧该模板卡成最坏复杂度。因为只有每次dfs到最深处，才知道该次dfs为假，至于优化，不是很了解…"></a>题目给了一个<del>市面上</del>常用的2-SAT模板，复杂度O(n*(n+m))，主要用于求字典序最小的方案，当求通解或判断是否存在解时，可用tarjan缩点的方式在(m+n)的时间内求出。当明白该模板原理后，很容易发现，一条长链就可以吧该模板卡成最坏复杂度。因为只有每次dfs到最深处，才知道该次dfs为假，至于优化，不是很了解…</h3>
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>lwl</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://Meguminl.github.io/2020/02/10/Camp-Day2/" title="Camp Day2">http://Meguminl.github.io/2020/02/10/Camp-Day2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/ACM/" rel="tag"># ACM</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/02/10/Camp-Day1/" rel="next" title="Camp Day1">
+                  <i class="fa fa-chevron-left"></i> Camp Day1
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/02/10/Camp-Day3/" rel="prev" title="Camp Day3">
+                  Camp Day3 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#H-叁佰爱抠的序列"><span class="nav-number">1.</span> <span class="nav-text">H.叁佰爱抠的序列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式："><span class="nav-number">1.0.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式"><span class="nav-number">1.0.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入样例："><span class="nav-number">1.0.3.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出样例："><span class="nav-number">1.0.4.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解：首先观察序列的含义，每对x-y-x-lt-y-在序列中至少相邻一次，将x，y相邻看成一条边，对于n个点的完全图-存在自环-来说，该序列的含义为，图上的一条链，该链包含每条边，每条边可以重复出现。对于这样的链，其特殊情况即每条边只出现一次为欧拉通路或者欧拉回路。故对n个点建好完全图，跑出欧拉路即可构造出题目需要的序列。"><span class="nav-number">1.0.5.</span> <span class="nav-text">题解：首先观察序列的含义，每对x,y(x&lt;y) 在序列中至少相邻一次，将x，y相邻看成一条边，对于n个点的完全图(存在自环)来说，该序列的含义为，图上的一条链，该链包含每条边，每条边可以重复出现。对于这样的链，其特殊情况即每条边只出现一次为欧拉通路或者欧拉回路。故对n个点建好完全图，跑出欧拉路即可构造出题目需要的序列。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#知道序列为完全图欧拉路之后，可以推出点数n与序列长度m的关系"><span class="nav-number">1.0.6.</span> <span class="nav-text">知道序列为完全图欧拉路之后，可以推出点数n与序列长度m的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-当点数n为奇数时，即每个点的度都为偶数，该图存在欧拉回路，即该图所有的边可以构成满足条件的序列，设边数为m，则n个点最少边数为n-n-1-2-序列长度至少为n-n-1-2-1"><span class="nav-number">1.0.7.</span> <span class="nav-text">1. 当点数n为奇数时，即每个点的度都为偶数，该图存在欧拉回路，即该图所有的边可以构成满足条件的序列，设边数为m，则n个点最少边数为n(n-1)/2,序列长度至少为n****(n-1)/2+1;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-当点数n为偶数时，每个点的度都为奇数，不存在欧拉通路，故我们要尝试提出一些边，使得存在欧拉通路，即只存在两奇点-度数为奇数的点-设1和n为奇点，剩下n-2为偶点，任取-n-2-2对点之间的边即可，跑出欧拉通路后，再把这-n-2-2条边补在最后面，就能构成满足条件的序列。此时n个点需要最少边数依然是n-n-1-2，但因为放了（n-2）-2条无公共点的边，导致序列长度增加，最后序列长度至少为n-n-2。"><span class="nav-number">1.0.8.</span> <span class="nav-text">2.当点数n为偶数时，每个点的度都为奇数，不存在欧拉通路，故我们要尝试提出一些边，使得存在欧拉通路，即只存在两奇点(度数为奇数的点),设1和n为奇点，剩下n-2为偶点，任取(n-2)/2对点之间的边即可，跑出欧拉通路后，再把这(n-2)/2条边补在最后面，就能构成满足条件的序列。此时n个点需要最少边数依然是n(n-1)/2，但因为放了（n-2）/2条无公共点的边，导致序列长度增加，最后序列长度至少为n****n/2。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综上-知道序列长度后，可以采用二分法推出最大点数，然后建图跑欧拉路，构造序列即可。"><span class="nav-number">1.0.9.</span> <span class="nav-text">综上 知道序列长度后，可以采用二分法推出最大点数，然后建图跑欧拉路，构造序列即可。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-邦邦的2-SAT模板"><span class="nav-number">2.</span> <span class="nav-text">2.邦邦的2-SAT模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式：-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入样例：-1"><span class="nav-number">2.0.3.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出样例：-1"><span class="nav-number">2.0.4.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录"><span class="nav-number">2.0.5.</span> <span class="nav-text">附录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">2.0.6.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目给了一个市面上常用的2-SAT模板，复杂度O-n-n-m-，主要用于求字典序最小的方案，当求通解或判断是否存在解时，可用tarjan缩点的方式在-m-n-的时间内求出。当明白该模板原理后，很容易发现，一条长链就可以吧该模板卡成最坏复杂度。因为只有每次dfs到最深处，才知道该次dfs为假，至于优化，不是很了解…"><span class="nav-number">2.0.7.</span> <span class="nav-text">题目给了一个市面上常用的2-SAT模板，复杂度O(n*(n+m))，主要用于求字典序最小的方案，当求通解或判断是否存在解时，可用tarjan缩点的方式在(m+n)的时间内求出。当明白该模板原理后，很容易发现，一条长链就可以吧该模板卡成最坏复杂度。因为只有每次dfs到最深处，才知道该次dfs为假，至于优化，不是很了解…</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" src="/images/xi.jpg" alt="lwl">
+  <p class="site-author-name" itemprop="name">lwl</p>
+  <div class="site-description" itemprop="description">个人站</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lwl</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
