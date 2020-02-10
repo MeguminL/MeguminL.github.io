@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="B.密码学考虑一种加密方式，它需要一个任意长度的原文 m 和秘钥 key，其中要求原文和秘钥只包含大写和小写的英文字符。 首先定义字符之间的加密，用字符 a 去加密字符 b 的结果是：  首先把 a 和 b 转成数字 x 和 y。转换的规则是，小写字母 a 到 z 依次对应 0 到 25，大写字母依次对应 26 到 51。 计算 x 和 y 的和 z，对 52 取模，即计算 (x+y) mod">
+  <meta name="description" content="Camp第一天比赛部分题解。">
 <meta name="keywords" content="ACM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Camp Day1">
 <meta property="og:url" content="http://Meguminl.github.io/2020/02/10/Camp-Day1/index.html">
 <meta property="og:site_name" content="megumin">
-<meta property="og:description" content="B.密码学考虑一种加密方式，它需要一个任意长度的原文 m 和秘钥 key，其中要求原文和秘钥只包含大写和小写的英文字符。 首先定义字符之间的加密，用字符 a 去加密字符 b 的结果是：  首先把 a 和 b 转成数字 x 和 y。转换的规则是，小写字母 a 到 z 依次对应 0 到 25，大写字母依次对应 26 到 51。 计算 x 和 y 的和 z，对 52 取模，即计算 (x+y) mod">
+<meta property="og:description" content="Camp第一天比赛部分题解。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-10T13:14:46.171Z">
+<meta property="og:updated_time" content="2020-02-10T14:46:04.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Camp Day1">
-<meta name="twitter:description" content="B.密码学考虑一种加密方式，它需要一个任意长度的原文 m 和秘钥 key，其中要求原文和秘钥只包含大写和小写的英文字符。 首先定义字符之间的加密，用字符 a 去加密字符 b 的结果是：  首先把 a 和 b 转成数字 x 和 y。转换的规则是，小写字母 a 到 z 依次对应 0 到 25，大写字母依次对应 26 到 51。 计算 x 和 y 的和 z，对 52 取模，即计算 (x+y) mod">
+<meta name="twitter:description" content="Camp第一天比赛部分题解。">
   <link rel="canonical" href="http://Meguminl.github.io/2020/02/10/Camp-Day1/">
 
 
@@ -224,7 +224,7 @@
                 
               
 
-              <time title="创建时间：2020-02-10 20:50:58 / 修改时间：21:14:46" itemprop="dateCreated datePublished" datetime="2020-02-10T20:50:58+08:00">2020-02-10</time>
+              <time title="创建时间：2020-02-10 20:50:58 / 修改时间：22:46:04" itemprop="dateCreated datePublished" datetime="2020-02-10T20:50:58+08:00">2020-02-10</time>
             </span>
           
             
@@ -251,7 +251,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <a id="more"></a>
+        <p>Camp第一天比赛部分题解。</p>
+<a id="more"></a>
 
 <h1 id="B-密码学"><a href="#B-密码学" class="headerlink" title="B.密码学"></a><a href="https://pintia.cn/problem-sets/1216345450691903488/problems/1216345586482487297" target="_blank" rel="noopener">B.密码学</a></h1><p>考虑一种加密方式，它需要一个任意长度的原文 <em>m</em> 和秘钥 <em>key</em>，其中要求原文和秘钥只包含大写和小写的英文字符。</p>
 <p>首先定义字符之间的加密，用字符 <em>a</em> 去加密字符 <em>b</em> 的结果是：</p>
