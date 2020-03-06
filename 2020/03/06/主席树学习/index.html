@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="主席树学习心得前置技能 前缀和 线段树 离散化  ​        对于一颗线段树，我们可以维护很多东西， 区间和、区间最大值、区间最小值等等。假设现在的线段数维护的是区间[1,N] (N&amp;lt;=1e6) 之间每个数字出现的次数。 ​        假设序列[2,5,1,4,2,5,5,3]，对于每前i(0&amp;lt;=i&amp;lt;=n)个数，维护区间[1,N]每个数出现次数。 对于i=0， 每个数字">
+  <meta name="description" content="主席树学习心得前置技能 前缀和 线段树 离散化">
 <meta name="keywords" content="ACM、算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="主席树学习">
 <meta property="og:url" content="http://Meguminl.github.io/2020/03/06/主席树学习/index.html">
 <meta property="og:site_name" content="megumin">
-<meta property="og:description" content="主席树学习心得前置技能 前缀和 线段树 离散化  ​        对于一颗线段树，我们可以维护很多东西， 区间和、区间最大值、区间最小值等等。假设现在的线段数维护的是区间[1,N] (N&amp;lt;=1e6) 之间每个数字出现的次数。 ​        假设序列[2,5,1,4,2,5,5,3]，对于每前i(0&amp;lt;=i&amp;lt;=n)个数，维护区间[1,N]每个数出现次数。 对于i=0， 每个数字">
+<meta property="og:description" content="主席树学习心得前置技能 前缀和 线段树 离散化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-06T11:14:59.504Z">
+<meta property="og:updated_time" content="2020-03-06T11:39:57.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="主席树学习">
-<meta name="twitter:description" content="主席树学习心得前置技能 前缀和 线段树 离散化  ​        对于一颗线段树，我们可以维护很多东西， 区间和、区间最大值、区间最小值等等。假设现在的线段数维护的是区间[1,N] (N&amp;lt;=1e6) 之间每个数字出现的次数。 ​        假设序列[2,5,1,4,2,5,5,3]，对于每前i(0&amp;lt;=i&amp;lt;=n)个数，维护区间[1,N]每个数出现次数。 对于i=0， 每个数字">
+<meta name="twitter:description" content="主席树学习心得前置技能 前缀和 线段树 离散化">
   <link rel="canonical" href="http://Meguminl.github.io/2020/03/06/主席树学习/">
 
 
@@ -224,7 +224,7 @@
                 
               
 
-              <time title="创建时间：2020-03-06 17:55:34 / 修改时间：19:14:59" itemprop="dateCreated datePublished" datetime="2020-03-06T17:55:34+08:00">2020-03-06</time>
+              <time title="创建时间：2020-03-06 17:55:34 / 修改时间：19:39:57" itemprop="dateCreated datePublished" datetime="2020-03-06T17:55:34+08:00">2020-03-06</time>
             </span>
           
             
@@ -256,6 +256,8 @@
 <li><h4 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h4></li>
 <li><h4 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a>离散化</h4></li>
 </ul>
+<a id="more"></a>
+
 <p>​        对于一颗线段树，我们可以维护很多东西， 区间和、区间最大值、区间最小值等等。假设现在的线段数维护的是区间[1,N] (N&lt;=1e6) 之间每个数字出现的次数。</p>
 <p>​        假设序列[2,5,1,4,2,5,5,3]，对于每前i(0&lt;=i&lt;=n)个数，维护区间[1,N]每个数出现次数。</p>
 <p>对于i=0， 每个数字出现0次，即第0颗线段树结点sum全为0</p>
