@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="待整理…">
+<meta name="keywords" content="笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息安全原理与实践">
+<meta property="og:url" content="http://Meguminl.github.io/2020/03/11/信息安全原理与实践/index.html">
+<meta property="og:site_name" content="megumin">
+<meta property="og:description" content="待整理…">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="c:/Users/刘文龙/Desktop/DES.png">
+<meta property="og:updated_time" content="2020-03-19T14:46:40.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="信息安全原理与实践">
+<meta name="twitter:description" content="待整理…">
+<meta name="twitter:image" content="c:/Users/刘文龙/Desktop/DES.png">
+  <link rel="canonical" href="http://Meguminl.github.io/2020/03/11/信息安全原理与实践/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>信息安全原理与实践 | megumin</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">megumin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://Meguminl.github.io/2020/03/11/信息安全原理与实践/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lwl">
+      <meta itemprop="description" content="个人站">
+      <meta itemprop="image" content="/images/xi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="megumin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">信息安全原理与实践
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-11 13:24:12" itemprop="dateCreated datePublished" datetime="2020-03-11T13:24:12+08:00">2020-03-11</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-19 22:46:40" itemprop="dateModified" datetime="2020-03-19T22:46:40+08:00">2020-03-19</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>待整理…</p>
+<a id="more"></a>
+<h1 id="Ⅰ-加密"><a href="#Ⅰ-加密" class="headerlink" title="Ⅰ-加密"></a>Ⅰ-加密</h1><h2 id="1-加密基础"><a href="#1-加密基础" class="headerlink" title="1. 加密基础"></a>1. 加密基础</h2><h3 id="1-1-简单替换密码"><a href="#1-1-简单替换密码" class="headerlink" title="1.1 简单替换密码"></a>1.1 简单替换密码</h3><p>​        著名的凯撒密码。</p>
+<h3 id="1-2-双换位密码"><a href="#1-2-双换位密码" class="headerlink" title="1.2 双换位密码"></a>1.2 双换位密码</h3><ul>
+<li><p>加密方法：将明文写在一个n*m的矩阵中，然后对行列根据特定的序列进行置换操作。</p>
+<p>举例：</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+明文：attackatdawn
+\left[
+\begin{array}{ccc}
+a & t & t & a\\\\
+c & k & a & t\\\\
+d & a & w & n\\
+\end{array}
+\right]
+\\
+加密规则：
+行 \left( \begin{array}{ccc} 3 & 2 & 1 \end{array}\right) 、
+列 \left(\begin{array}{ccc} 4 & 2 & 1 & 3\end{array}\right)\\
+加密过程：
+\left[\begin{array}{ccc}
+a & t & t & a\\\\
+c & k & a & t\\\\
+d & a & w & n\\
+\end{array}\right]
+\stackrel{转换行}{\longrightarrow}
+\left[\begin{array}{ccc}
+d & a & w & n\\\\
+c & k & a & t\\\\
+a & t & t & a\\
+\end{array}\right]
+\stackrel{转换列}{\longrightarrow}
+\left[\begin{array}{ccc}
+n & a & d & w\\\\
+t & k & c & a\\\\
+a & t & a & t\\
+\end{array}\right]\\\\
+得到密文：nadwtkcaatat\\
+解密：根据加密规则，知道每行、每列的原始行号、列号，重新排列即可。\\
+过程：
+\left[\begin{array}{ccc}
+n & a & d & w\\\\
+t & k & c & a\\\\
+a & t & a & t\\
+\end{array}\right]
+\stackrel{还原列}{\longrightarrow}
+\left[\begin{array}{ccc}
+d & a & w & n\\\\
+c & k & a & t\\\\
+a & t & t & a\\
+\end{array}\right]
+\stackrel{还原行}{\longrightarrow}
+\left[\begin{array}{ccc}
+a & t & t & a\\\\
+c & k & a & t\\\\
+d & a & w & n\\
+\end{array}\right]</script><h3 id="1-3-一次性密码本"><a href="#1-3-一次性密码本" class="headerlink" title="1.3 一次性密码本"></a>1.3 一次性密码本</h3><ul>
+<li><p>采用随机密钥，Alice和Bob必须都知道加密时所用的密钥，这样对方才能破译出明文。</p>
+</li>
+<li><p>密钥必须只能使用一次，连续使用会被对方用穷举法破译。</p>
+<p>加密： 明文 $\oplus$ 密钥 = 密文</p>
+<p>解密： 密文 $\oplus$ 密钥 = 明文</p>
+</li>
+</ul>
+<h2 id="2-对称密钥加密"><a href="#2-对称密钥加密" class="headerlink" title="2-对称密钥加密"></a>2-对称密钥加密</h2><h3 id="2-1-流密码加密"><a href="#2-1-流密码加密" class="headerlink" title="2.1 流密码加密"></a>2.1 流密码加密</h3><ul>
+<li><p>用法等同于一次性密码本加密方法。</p>
+</li>
+<li><p>密钥流通过密钥生成，简单看成以下公式：</p>
+<p>$StreamCipher(K) = S$ 其中$K$是密钥， $S$是生成的密钥流， $StreamCipher()$是密钥处理函数。</p>
+</li>
+<li><p>给定密钥流$S = S_{0}, S_{1}, S_{2}, …$以及明文$P=P_{0},P_{1},P_{2},…$,通过按位异或运算生成密文$C=C_{0},C_{1},C_{2},…$,</p>
+<p>过程：$C_{0}=P_{0}\oplus S_{0},C_{1}=P_{1}\oplus S_{1},C_{2}=P_{2}\oplus S_{2},…$</p>
+</li>
+<li><p>解密：$P_{0}=C_{0}\oplus S_{0},P_{1}=C_{1}\oplus S_{1},P_{2}=C_{2}\oplus S_{2},…$</p>
+</li>
+<li><p>$\textbf{$A5/1$算法} $</p>
+<p>三个寄存器$X、Y、Z$,其中$X$寄存器19位，$Y$寄存器22位，$Z$寄存器23位，一共64位。</p>
+<p>三个寄存器的步骤操作：</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+  \begin{align*}
+  寄存器X的步骤:&t=x_{13} \oplus x_{16} \oplus x_{17} \oplus x_{18}\\
+  &x_{i} = x_{i-1}\quad for\quad i=18,17,16,...,1\\
+  &x_{0}=t\\\\
+  寄存器Y的步骤：
+  & t= y_{20} \oplus y_{21}\\
+  & y_{i}=y_{i-1} \quad for \quad i=21,20,19,...,1\\
+  & y_{0}=t;\\\\
+  寄存器Z的步骤：
+  & t = z_{7} \oplus z_{20} \oplus z_{21} \oplus z_{22}\\
+  &z_{i} = z_{i-1} \quad for \quad i = 22,21,20,...,1\\
+  &z_{0} = t;
+  \end{align*}</script><p>  定义投票函数$maj(x,y,z)$，其中$x,y,z$为一位二进制，投票函数返回值为$x,y,z$中出现次数最多的那个值。</p>
+<p>  密钥流$S_{i}$的生成过程：</p>
+<script type="math/tex; mode=display">
+  m = maj(x_{8}, y_{10}, z_{10})\\
+  如果x_{8}=m，那么执行X步骤  \\
+  如果y_{10}=m,那么执行Y步骤  \\
+  如果z_{10}=m,那么执行Z步骤\\
+  当前密钥流位s_{i} = x_{18} \oplus y_{21} \oplus z_{22}</script><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">实现代码</span></span><br><span class="line"><span class="comment">语言：C++</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span>;</span><br><span class="line"><span class="keyword">int</span> P[maxn];	<span class="comment">// 明文	</span></span><br><span class="line"><span class="keyword">int</span> C[maxn];	<span class="comment">// 密文</span></span><br><span class="line"><span class="keyword">int</span> S[maxn];	<span class="comment">// 密钥流</span></span><br><span class="line"><span class="keyword">int</span> X[<span class="number">30</span>];		<span class="comment">// 19位X寄存器</span></span><br><span class="line"><span class="keyword">int</span> Y[<span class="number">30</span>];		<span class="comment">// 21位Y寄存器</span></span><br><span class="line"><span class="keyword">int</span> Z[<span class="number">30</span>];		<span class="comment">// 23位Z寄存器</span></span><br><span class="line"><span class="keyword">int</span> len;		<span class="comment">// 明文长度</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maj</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span></span>&#123; <span class="keyword">return</span> x+y+z&gt;<span class="number">1</span>;&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shift</span><span class="params">(<span class="keyword">int</span> tmp[], <span class="keyword">int</span> num, <span class="keyword">int</span> t)</span></span>&#123;	<span class="keyword">for</span>(<span class="keyword">int</span> i=num<span class="number">-1</span>;i&gt;<span class="number">0</span>;--i) tmp[i] = tmp[i<span class="number">-1</span>];X[<span class="number">0</span>]=t;&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_S</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i)&#123;</span><br><span class="line">		<span class="keyword">int</span> m = maj(X[<span class="number">8</span>], Y[<span class="number">10</span>], Z[<span class="number">10</span>]);</span><br><span class="line">		<span class="keyword">if</span>(X[<span class="number">8</span>] ==m) 	shift(X,<span class="number">19</span>,X[<span class="number">13</span>]^X[<span class="number">16</span>]^X[<span class="number">17</span>]^X[<span class="number">18</span>]);</span><br><span class="line">		<span class="keyword">if</span>(Y[<span class="number">10</span>]==m) 	shift(Y,<span class="number">22</span>,Y[<span class="number">20</span>]^Y[<span class="number">21</span>]);</span><br><span class="line">		<span class="keyword">if</span>(Z[<span class="number">10</span>]==m) 	shift(Z,<span class="number">23</span>,Z[<span class="number">7</span>]^Z[<span class="number">20</span>]^Z[<span class="number">21</span>]^Z[<span class="number">22</span>]);</span><br><span class="line">		S[i] = X[<span class="number">18</span>]^Y[<span class="number">21</span>]^Z[<span class="number">22</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">A5</span><span class="params">(<span class="keyword">int</span> tmp_C[], <span class="keyword">int</span> tmp_P[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i) tmp_P[i] = tmp_C[i]^S[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">random</span><span class="params">()</span></span>&#123;</span><br><span class="line">	srand(time(<span class="number">0</span>));</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"明文："</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i)&#123;</span><br><span class="line">		P[i] = rand()%<span class="number">2</span>;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;P[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;<span class="built_in">cout</span>&lt;&lt;<span class="string">"\n"</span>;</span><br><span class="line">	A5(P,C);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"密文："</span>;<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i) <span class="built_in">cout</span>&lt;&lt;C[i]&lt;&lt;<span class="string">" "</span>;<span class="built_in">cout</span>&lt;&lt;<span class="string">"\n"</span>;</span><br><span class="line">	A5(C,C);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"明文："</span>;<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i) <span class="built_in">cout</span>&lt;&lt;C[i]&lt;&lt;<span class="string">" "</span>;<span class="built_in">cout</span>&lt;&lt;<span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	freopen(<span class="string">"in.in"</span>,<span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">19</span>;++i) <span class="built_in">cin</span>&gt;&gt;X[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">22</span>;++i) <span class="built_in">cin</span>&gt;&gt;Y[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">23</span>;++i) <span class="built_in">cin</span>&gt;&gt;Z[i];</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;len;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;len&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i) <span class="built_in">cin</span>&gt;&gt;P[i];</span><br><span class="line">	get_S();</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"密钥流："</span>;<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i) <span class="built_in">cout</span>&lt;&lt;S[i]&lt;&lt;<span class="string">" "</span>;<span class="built_in">cout</span>&lt;&lt;<span class="string">"\n"</span>;</span><br><span class="line">	A5(P, C);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"密文："</span>;<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i) <span class="built_in">cout</span>&lt;&lt;C[i]&lt;&lt;<span class="string">" "</span>;<span class="built_in">cout</span>&lt;&lt;<span class="string">"\n"</span>;</span><br><span class="line">	A5(C, C);</span><br><span class="line">  	<span class="built_in">cout</span>&lt;&lt;<span class="string">"明文："</span>;<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i) <span class="built_in">cout</span>&lt;&lt;C[i]&lt;&lt;<span class="string">" "</span>;<span class="built_in">cout</span>&lt;&lt;<span class="string">"\n\n"</span>;</span><br><span class="line">  	random();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>$\textbf{RC4算法}$</p>
+</li>
+<li><p>初始化阶段，用密钥初始化查找表。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">伪代码</span><br><span class="line"><span class="keyword">for</span> i=<span class="number">0</span> to <span class="number">255</span></span><br><span class="line">    S[i] = i</span><br><span class="line">    K[i] = key[i % N]</span><br><span class="line">next i</span><br><span class="line">j = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i = <span class="number">0</span> to <span class="number">255</span></span><br><span class="line">	j = (j + S[i] + K[i]) % <span class="number">256</span></span><br><span class="line">    swap(S[i], S[j])</span><br><span class="line">next i</span><br><span class="line">i = j = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>每个密钥流字节依据算法逐步生成的过程</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">伪代码</span><br><span class="line">i = (i + <span class="number">1</span>) % <span class="number">256</span></span><br><span class="line">j = (j + S[i]) % <span class="number">256</span></span><br><span class="line">swap(S[i], S[j])</span><br><span class="line">t = (S[i] + S[j]) % <span class="number">256</span></span><br><span class="line">keystreamByte = S[t]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>密码流与A5-1算法的密码流一致，用于加密明文，解密密文。</p>
+<hr>
+</li>
+</ul>
+<h3 id="2-2-分组密码加密"><a href="#2-2-分组密码加密" class="headerlink" title="2.2 分组密码加密"></a>2.2 分组密码加密</h3><ul>
+<li><p>$\textbf{Feistel密码}$ ：加密方案设计的通用原则。</p>
+<p>明文$P$被分成左右两部分：$P=(L_{0},R_{0})$</p>
+<p>对于第$i$轮加密，新的$L_{i}，R_{i}$生成规则如下：</p>
+<p>$L_{i} = R_{i-1}$  </p>
+<p>$R_{i}=L_{i-1} \oplus F(R_{i-1},K_{i})$</p>
+<p>$i=1,2,…,n$</p>
+<p>对于最后一轮加密，结果即为密文：$C=(L_{n},R_{n})$</p>
+<p>解密过程：</p>
+<p>$R_{i-1}=L_{i}$</p>
+<p>$L_{i-1}=R_{i} \oplus F(R_{i-1}, K_{i})$</p>
+<p>$i = n,n-1,…,1$</p>
+<p>对于最后一轮解密，结果即为明文：$P=(L_{0} \oplus R_{0})$</p>
+<p>$F(R_{i-1},k_{i})$为轮函数。</p>
+</li>
+<li><p>$\textbf{DES}$：数据加密标准</p>
+<ul>
+<li>共16轮计算</li>
+<li>64位分组长度</li>
+<li>56位密钥</li>
+<li>48位子密钥</li>
+</ul>
+<p><img src="C:\Users\刘文龙\Desktop\DES.png" alt="DES"></p>
+</li>
+</ul>
+<p>  轮函数$F$：$F(R_{i-1},K_{i})=Pbox(Sboxes(Expand(R_{i-1} \oplus K_{i})))$</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>lwl</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://Meguminl.github.io/2020/03/11/信息安全原理与实践/" title="信息安全原理与实践">http://Meguminl.github.io/2020/03/11/信息安全原理与实践/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/笔记/" rel="tag"># 笔记</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/03/06/主席树学习/" rel="next" title="主席树学习">
+                  <i class="fa fa-chevron-left"></i> 主席树学习
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ⅰ-加密"><span class="nav-number">1.</span> <span class="nav-text">Ⅰ-加密</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-加密基础"><span class="nav-number">1.1.</span> <span class="nav-text">1. 加密基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-简单替换密码"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 简单替换密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-双换位密码"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 双换位密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-一次性密码本"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 一次性密码本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-对称密钥加密"><span class="nav-number">1.2.</span> <span class="nav-text">2-对称密钥加密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-流密码加密"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 流密码加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-分组密码加密"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 分组密码加密</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" src="/images/xi.jpg" alt="lwl">
+  <p class="site-author-name" itemprop="name">lwl</p>
+  <div class="site-description" itemprop="description">个人站</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lwl</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+</body>
+</html>
